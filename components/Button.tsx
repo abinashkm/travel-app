@@ -10,11 +10,12 @@ type ButtonProps = {
   title: string;
   icon?: string; // ?: this means it's optional to have an icon or not.
   variant: string;
+  full?: boolean;
 }
 
-const Button = ({type, title, icon, variant}:ButtonProps) => {
+const Button = ({type, title, icon, variant, full}:ButtonProps) => {
   return (
-    <button className={`flexCenter gap-3 rounded-full border ${variant}`} type={type}>
+    <button className={`flexCenter gap-3 rounded-full border ${variant} ${full && "w-full"}`} type={type}>
 
       {icon && <Image src={icon} alt={title} width={21} height={21}/>}
       <label className="bold-16 whitespace-nowrap">{title}</label>
